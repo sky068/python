@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 '''
-leetcode 中国 题目
+leetcode 中国
 https://leetcode-cn.com/problemset/all/
+使用python3语言
 '''
 
 import math
@@ -9,8 +10,6 @@ import sys
 import time
 
 # 广度优先搜索二叉树（利用队列先进先出)
-
-
 def BFS(treeRoot):
     if not treeRoot:
         return
@@ -26,8 +25,6 @@ def BFS(treeRoot):
             queue.append(node.right)
 
 # 非递归深度优先(前序)搜索二叉树 （利用盏的后进先出）
-
-
 def DFS(treeRoot):
     if not treeRoot:
         return
@@ -42,8 +39,6 @@ def DFS(treeRoot):
             stack.append(node.left)
 
 # 深度优先 中序
-
-
 def DFS_M(treeRoot):
     if not treeRoot:
         return
@@ -59,8 +54,6 @@ def DFS_M(treeRoot):
             node = node.right
 
 # 深度优先 后序
-
-
 def DFS_L(treeRoot):
     if not treeRoot:
         return
@@ -81,8 +74,6 @@ def DFS_L(treeRoot):
             node = node.right
 
 # 深度优先 递归先序
-
-
 def dfs_recursive(treeRoot):
     if not treeRoot:
         return
@@ -91,16 +82,12 @@ def dfs_recursive(treeRoot):
     dfs_recursive(treeRoot.right)
 
 # 树的最大深度
-
-
 def max_deep(treeRoot):
     if not treeRoot:
         return 0
     return max(max_deep(treeRoot.left), max_deep(treeRoot.right)) + 1
 
 # 树的最小深度
-
-
 def min_deep(treeRoot):
     if not treeRoot:
         return 0
@@ -114,8 +101,6 @@ def min_deep(treeRoot):
     return dep + 1
 
 # 打印先序
-
-
 def print_tree(treeRoot):
     if not treeRoot:
         return
@@ -126,8 +111,6 @@ def print_tree(treeRoot):
         print_tree(treeRoot.right)
 
 # 判断二叉树是否相同
-
-
 def same_tree(t1, t2):
     if not t1 and not t2:
         return True
@@ -149,8 +132,6 @@ def twoSum(nums, target):
         return []
 
 # 反转整数 #7
-
-
 def reverse(x: int) -> int:
     ret = 0
     max_int = sys.maxsize
@@ -168,8 +149,6 @@ def reverse(x: int) -> int:
     return int(ret)
 
 # 回文数 #9
-
-
 def isPalindrome(x: int) -> bool:
     if x < 0 or (x != 0 and x % 10 == 0):
         return false
@@ -182,8 +161,6 @@ def isPalindrome(x: int) -> bool:
 
 # 罗马数字转整数 #13
 # I:1, V:5, X:10, L:50, C:100, D:500, M:1000
-
-
 def romanToInt(s: str) -> int:
     hashNum = {
         "I": 1,
@@ -204,8 +181,6 @@ def romanToInt(s: str) -> int:
     return ret
 
 # 最长公共前缀 #14
-
-
 def longestCommonPrefix(strs):
     # if (len(strs) <= 0):
     #     return ''
@@ -230,8 +205,6 @@ def longestCommonPrefix(strs):
     return strs[0]
 
 # 有效的括号 #20
-
-
 def isValid(s):
     if len(s) % 2 != 0:
         return False
@@ -254,8 +227,6 @@ def isValid(s):
 
 # 合并两个有序链表 #21
 # Definition for singly-linked list.
-
-
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -294,8 +265,6 @@ def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
     return head
 
 # 合并两个有序数组，把nums2合并进nums1, 假设nums1空间足够 #88
-
-
 def merge(nums1, m, nums2, n) -> None:
     # j = 0
     # t = m
@@ -334,8 +303,6 @@ def merge(nums1, m, nums2, n) -> None:
         p -= 1
 
 # 删除排序数组中的重复项 #26
-
-
 def removeDuplicates(nums) -> int:
     # if len(nums) == 0:
     #     return 0
@@ -360,8 +327,6 @@ def removeDuplicates(nums) -> int:
     return i+1
 
 # 移除元素 #27
-
-
 def removeElement(nums, val: int) -> int:
     # l = len(nums)
     # i = 0
@@ -395,8 +360,6 @@ def removeElement(nums, val: int) -> int:
     # return l
 
 # 实现strStr()函数 #28
-
-
 def strStr(haystack: str, needle: str) -> int:
     if len(needle) == 0:
         return 0
@@ -409,8 +372,6 @@ def strStr(haystack: str, needle: str) -> int:
     return -1
 
 # 在有序数组中查找给定值的位置，如果找不到则返回插入位置 #35
-
-
 def searchInsert(nums, target) -> int:
     left = 0
     right = len(nums) - 1
@@ -425,8 +386,6 @@ def searchInsert(nums, target) -> int:
     return left
 
 # 盛水最多的容器 #11  双指针法 **
-
-
 def maxArea(height) -> int:
     volume, left, right = 0, 0, len(height)-1
     while left < right:
@@ -438,8 +397,6 @@ def maxArea(height) -> int:
     return volume
 
 # 寻找两个正序数组的中位数 #4 ***
-
-
 def findMedianSortedArrays(nums1, nums2) -> float:
     if len(nums1) > len(nums2):
         nums1, nums2 = nums2, nums1
@@ -551,8 +508,6 @@ def heapsort(nums):
 
 # 查找无序数组中的中位数
 # 使用小顶堆
-
-
 def findMid(nums):
     # 模拟小顶堆
     class Heap:
@@ -621,8 +576,6 @@ def findMid2(nums):
     return nums[mid]
 
 # 最大子序和 #53
-
-
 def maxSubArray(nums) -> int:
     pre = 0
     maxValue = nums[0]
@@ -632,8 +585,6 @@ def maxSubArray(nums) -> int:
     return maxValue
 
 # 最后一个单词的长度 #58
-
-
 def lengthOfLastWord(s: str) -> int:
     s = s.strip()
     l = len(s)
@@ -662,8 +613,6 @@ def lengthOfLastWord(s: str) -> int:
     # return n
 
 # 加1 #66
-
-
 def plusOne(digits):
     # ns = ''.join('%s' % d for d in digits)
     # n = int(ns)
@@ -768,8 +717,6 @@ def deleteDuplicates(head: ListNode) -> ListNode:
     return head
 
 # 相同的树 #100
-
-
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -787,8 +734,6 @@ def isSameTree(p: TreeNode, q: TreeNode) -> bool:
         return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
 
 # pow(x, n)  #50
-
-
 def myPow(x: float, n: int) -> float:
         def quickMul(N):
             if N == 0:
@@ -800,8 +745,6 @@ def myPow(x: float, n: int) -> float:
 
 # 给定一个无序数组和一个目标值，找出数组中两个数之和等于目标值的所有组合, 并指出时间复杂度
 # O(n)
-
-
 def findSum(nums, target):
     m = {}
     ret = []
@@ -831,18 +774,17 @@ print(findMedianSortedArrays([1, 2, 3, 9], [4, 5, 6]))
 print('time cost: %f' % (time.time()-start))
 
 
-import time, threading
+class Stu:
+    count = 0
+    def __init__(self, age):
+            self.age = age
+            Stu.count += 1
+    @classmethod
+    def showcount(cls):
+        print(cls.count)
 
-def loop():
-    print('thread %s is running...' % threading.current_thread().name)
-    n = 0
-    while n < 5:
-        n = n + 1
-        print('thread %s >>> %s' % (threading.current_thread().name, n))
-        time.sleep(1)
-    print('thread %s ended.' % threading.current_thread().name)
+s = Stu(10)
+s2 = Stu(11)
+Stu.showcount()
+s.showcount()
 
-t = threading.Thread(target=loop, name = 'loopthread')
-t.start()
-t.join()
-print('thread %s ended.' % threading.current_thread().name)

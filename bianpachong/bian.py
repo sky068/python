@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+'''
+需要的安装:
+beautifulsoup4
+lxml
+requests
+'''
 
 import requests
 from bs4 import BeautifulSoup
@@ -10,9 +16,9 @@ import UserAgent
 
 index = 'http://www.netbian.com' # 网站根地址
 interval = 0.1 # 爬取图片的间隔时间
-firstDir = r'/Users/xujiawei/Pictures/netbian2' # 总路径
+firstDir = r'/Users/xujiawei/Pictures/netbian' # 总路径
 classificationDict = {} # 存放网站分类子页面的信息
-useMultiThread = False # 是否使用多线程并发下载
+useMultiThread = True # 是否使用多线程并发下载
 
 if useMultiThread:
     import threading
@@ -103,6 +109,8 @@ def select_classification(choice):
     select = '#main > div.page > span.slh'
     pageIndex = screenPage(secondUrl, select)
     lastPagenum = int(pageIndex) # 获取最后一页的页码
+    # 暂时只下载前5页
+    lastPagenum = min(lastPagenum, 5)
     for i in range(0, lastPagenum):
         if i == 0:
             url = secondUrl

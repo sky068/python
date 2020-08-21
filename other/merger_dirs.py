@@ -14,7 +14,7 @@ def moveAll(dir, new_dir):
     if not os.path.exists(new_dir):
         os.makedirs(new_dir)
     i=0
-    for root, subdir, files in os.walk(dir):
+    for root, _, files in os.walk(dir):
         for file in files:
             i += 1
             old_path = os.path.join(root, file)

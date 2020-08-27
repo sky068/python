@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 '''
 7种常见排序算法
-快排、冒泡、插入、希尔、选择、归并、堆排序
+快排(双向扫描)、冒泡、插入、希尔、选择、归并、堆排序
 '''
 
-# 快速排序
+# 快速排序 双向扫描法
 def sortQuick(nums, start, end):
     if start >= end:
         return

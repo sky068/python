@@ -16,7 +16,7 @@ class Queue(object):
 
     def __repr__(self):
         return '->'.join(str(item) for item in self.items[self.head:self.tail])
-
+# 数组队列
 class ArrayQueue(Queue):
     def enqueue(self, item):
         if self.tail == self.capacities:
@@ -75,7 +75,7 @@ class Node:
     def __init__(self, data, next = None):
         self.data = data
         self.next = next
-
+# 链表队列
 class LinkedQueue(object):
     def __init__(self):
         self.head = None
@@ -105,19 +105,20 @@ class LinkedQueue(object):
             cur = cur.next
         return "->".join(str(data) for data in items)
 
-# que = ArrayQueue(3)
-que = LinkedQueue()
-que.enqueue(1)
-que.enqueue(2)
-que.enqueue(3)
-print(que)
-print(que.enqueue(4))
-print(que.dequeue())
-print(que)
-print(que.dequeue())
-print(que)
-print(que.dequeue())
-print(que)
-print(que.enqueue(5))
-print(que.enqueue(6))
-print(que)
+if __name__ == "__main__":
+    # que = ArrayQueue(3)
+    que = LinkedQueue()
+    que.enqueue(1)
+    que.enqueue(2)
+    que.enqueue(3)
+    print(que)
+    print(que.enqueue(4))
+    print(que.dequeue())
+    print(que)
+    print(que.dequeue())
+    print(que)
+    print(que.dequeue())
+    print(que)
+    print(que.enqueue(5))
+    print(que.enqueue(6))
+    print(que)

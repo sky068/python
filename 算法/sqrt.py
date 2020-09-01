@@ -16,7 +16,7 @@ def sqrt(n, s):
 # 牛顿弦切法 速度非常快
 def sqrt2(n, s):
     f = 1 / pow(10, s)
-    xini = n / 2
+    xini = n / 2 + 1
     while xini*xini - n > f:
         # xini = (n + xini * xini)/2/xini
         xini = (xini + n/xini) / 2

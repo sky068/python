@@ -18,14 +18,17 @@ def sqrt2(n, s):
     f = 1 / pow(10, s)
     xini = n / 2
     while xini*xini - n > f:
-        xini = (n + xini * xini)/2/xini
-        
+        # xini = (n + xini * xini)/2/xini
+        xini = (xini + n/xini) / 2
+
     return round(xini, s)
 
-
+from datetime import datetime
+start = datetime.now().timestamp()*1000000
 if __name__ == "__main__":
-    n = 999980191
+    n = 9999801919
     print(sqrt2(n, 6))
-    print(sqrt(n, 6))
+    print(datetime.now().timestamp()*1000000 - start)
+    # print(sqrt(n, 6))
 
 

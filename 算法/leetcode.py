@@ -8,6 +8,7 @@ https://leetcode-cn.com/problemset/all/
 import math
 import sys
 import time
+from typing import List
 
 # 广度优先搜索二叉树（利用队列先进先出)
 def BFS(treeRoot):
@@ -151,13 +152,13 @@ def reverse(x: int) -> int:
 # 回文数 #9
 def isPalindrome(x: int) -> bool:
     if x < 0 or (x != 0 and x % 10 == 0):
-        return false
+        return False
     ret = 0
     while ret < x:
         p = x % 10
         x = x // 10
         ret = ret * 10 + p
-    return ret == y or x == ret // 10
+    return ret == x or x == ret // 10
 
 # 罗马数字转整数 #13
 # I:1, V:5, X:10, L:50, C:100, D:500, M:1000
@@ -698,15 +699,7 @@ def mySqrt(x: int) -> int:
 #     return ''.join(first)
 
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
 # 删除排序链表中重复的元素 #83
-
-
 def deleteDuplicates(head: ListNode) -> ListNode:
     current = head
     while current and current.next:
@@ -755,6 +748,29 @@ def findSum(nums, target):
             ret.append((diffIdex, i))
         m[v] = i
     return ret
+
+# 搜索升序排序旋转数组，比如[4,5,6,1,2,3] 力扣 #33
+def bsearch_rotate_arr(arr:List[int], v):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = low + ((high - low) >> 1)
+        if arr[mid] == v:
+            return mid
+        elif arr[mid] < arr[low]:
+            # mid及之后是有序的
+            if v >= arr[mid] and v <= arr[high]:
+                low = mid
+            else:
+                high = mid - 1
+        else:
+            # mid之前是有序的
+            if v >= arr[low] and v <= arr[mid]:
+                high = mid
+            else:
+                low = mid + 1
+    return -1
+
 
 
 start = time.time()

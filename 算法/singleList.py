@@ -94,6 +94,28 @@ def mergeList(h1, h2):
         return fake_node.next
     return h1 or h2
 
+# 判断回文数
+def is_palindrome(head):
+    # 先找中间节点
+    slow = head.next
+    fast = head.next
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+    reverse_node = reverse(slow)
+    head_node = head
+    is_plaind = True
+    while head_node and reverse_node:
+        if head_node.val == reverse_node.val:
+            head_node = head_node.next
+            reverse_node = reverse_node.next
+        else:
+            is_plaind = False
+            break
+    
+    return is_plaind
+
 def logList(head):
     cur = head
     data = []
@@ -120,3 +142,10 @@ if __name__ == "__main__":
     # logList(mergeList(head, head2))
     # logList(middleNode(head2))
     logList(deleteNth(head, 1))
+
+    palind = ListNode('a')
+    palind.next = ListNode('b')
+    palind.next.next = ListNode('c')
+    palind.next.next.next = ListNode('b')
+    palind.next.next.next.next = ListNode('a')
+    print(is_palindrome(palind))

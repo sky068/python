@@ -94,6 +94,35 @@ def bfs(root: TreeNode):
         if node.right:
             heap.append(node.right)
 
+# 广度优先搜索，按层输出结果
+def bfs_layer(root: True):
+    ret = []
+    if not root:
+            return ret
+
+    queue = []
+    queue.append([root])
+    while len(queue) != 0:
+        layerNodes = queue.pop(0)
+
+        layerRet = []
+        nextLayerNodes = []
+        while len(layerNodes) != 0:
+            node = layerNodes.pop(0)
+            layerRet.append(node.val)
+            if node.left:
+                nextLayerNodes.append(node.left)
+            if node.right:
+                nextLayerNodes.append(node.right)
+
+        ret.append(layerRet)
+
+        if len(nextLayerNodes) > 0:
+            queue.append(nextLayerNodes)
+
+    return ret
+
+
 # 树的最大深度
 def maxDepth(root: TreeNode):
     if not root:
@@ -170,3 +199,5 @@ bfs(btree)
 print('')
 print('树的最大深度:', maxDepth(btree))
 print('树的最小深度:', minDepth(btree))
+
+print(bfs_layer(btree))

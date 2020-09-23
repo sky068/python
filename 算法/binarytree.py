@@ -95,7 +95,7 @@ def bfs(root: TreeNode):
             heap.append(node.right)
 
 # 广度优先搜索，按层输出结果
-def bfs_layer(root: True):
+def bfs_layer(root: TreeNode):
     ret = []
     if not root:
             return ret
@@ -166,38 +166,40 @@ def minDepth(treeRoot):
 #     6
 #    / \
 #   7   8   
-btree = TreeNode(1)
-btree.left = TreeNode(2)
-btree.left.left = TreeNode(4)
-btree.left.left.right = TreeNode(6)
-btree.left.left.right.left = TreeNode(7)
-btree.left.left.right.right = TreeNode(8)
-btree.right = TreeNode(3)
-btree.right.right = TreeNode(5)
 
-print('------DFS（深度优先）------')
-print('先序递归: ', end='')
-preorderRecursion(btree)
-print('')
-print('先序非递归: ', end='')
-preorderNotRecursion(btree)
-print('\n--------------------------------')
-print('中序递归: ', end='')
-middleorderRecursion(btree)
-print('')
-print('中序非递归: ', end='')
-middleorderNotRecursion(btree)
-print('\n--------------------------------')
-print('后序递归: ', end='')
-afterorderRecursion(btree)
-print('')
-print('后序非递归: ', end='')
-afterorderNotRecursion(btree)
-print('')
-print('------BFS（广度优先）------')
-bfs(btree)
-print('')
-print('树的最大深度:', maxDepth(btree))
-print('树的最小深度:', minDepth(btree))
+if __name__ == "__main__":
+    btree = TreeNode(1)
+    btree.left = TreeNode(2)
+    btree.left.left = TreeNode(4)
+    btree.left.left.right = TreeNode(6)
+    btree.left.left.right.left = TreeNode(7)
+    btree.left.left.right.right = TreeNode(8)
+    btree.right = TreeNode(3)
+    btree.right.right = TreeNode(5)
 
-print(bfs_layer(btree))
+    print('------DFS（深度优先）------')
+    print('先序递归: ', end='')
+    preorderRecursion(btree)
+    print('')
+    print('先序非递归: ', end='')
+    preorderNotRecursion(btree)
+    print('\n--------------------------------')
+    print('中序递归: ', end='')
+    middleorderRecursion(btree)
+    print('')
+    print('中序非递归: ', end='')
+    middleorderNotRecursion(btree)
+    print('\n--------------------------------')
+    print('后序递归: ', end='')
+    afterorderRecursion(btree)
+    print('')
+    print('后序非递归: ', end='')
+    afterorderNotRecursion(btree)
+    print('')
+    print('------BFS（广度优先）------')
+    bfs(btree)
+    print('')
+    print('树的最大深度:', maxDepth(btree))
+    print('树的最小深度:', minDepth(btree))
+
+    print(bfs_layer(btree))

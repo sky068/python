@@ -1,5 +1,7 @@
 # 递归
 
+from typing import List
+
 '''
 假如这里有 n 个台阶，每次你可以跨 1 个台阶或者 2 个台阶，
 请问走这 n 个台阶有多少种走法？
@@ -41,6 +43,25 @@ def f3(n):
         pre = ret
     return ret
 
+
+# 打印全排列
+# a={1, 2, 3, 4}; printPermutations(a, 4, 4);// k表示要处理的子数组的数据个数
+def printPermutations(arr: List[int], k:int):
+    if k == 1:
+        for i in range(len(arr)):
+            print(arr[i], end="")
+        print('')
+    for i in range(k):
+        tmp = arr[i]
+        arr[i] = arr[k-1]
+        arr[k-1] = tmp
+
+        printPermutations(arr, k - 1)
+
+        tmp = arr[i]
+        arr[i] = arr[k-1]
+        arr[k-1] = tmp
+
 if __name__ == "__main__":
     print(f1(30))
     print(f1(1))
@@ -53,3 +74,6 @@ if __name__ == "__main__":
     print(f3(30))
     print(f3(1))
     print(f3(2))
+
+    print('')
+    print(printPermutations([1,2,3,4], 4))

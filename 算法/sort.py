@@ -107,6 +107,7 @@ def sortHeap(nums):
         nums[indexA] = nums[indexB]
         nums[indexB]  = tmp
     
+    # 堆化，自上而下处理
     def maxHeap(start, end):
         dad = start
         son = dad * 2 + 1
@@ -120,13 +121,13 @@ def sortHeap(nums):
             else:
                 return
 
-    # 建堆(最大堆积)
+    # 建堆(最大堆积) 自下而上
     length = len(nums)
     for i in range(length // 2 - 1, -1, -1):
         maxHeap(i, length - 1)
 
     # 根节点和最后一个节点交换（根节点始终最大），然后剔除最后一个节点重新建堆
-    for i in range(length-1, -1, -1):
+    for i in range(length-1, 0, -1):
         swap(0, i)
         maxHeap(0, i - 1)
     

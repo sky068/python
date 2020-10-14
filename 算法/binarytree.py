@@ -17,7 +17,7 @@ def preorderRecursion(root: TreeNode):
         preorderRecursion(root.left)
         preorderRecursion(root.right)
 
-# 先需非递归 利用栈的后进先出
+# 先序非递归 利用栈的后进先出
 def preorderNotRecursion(root: TreeNode):
     if not root:
         return
